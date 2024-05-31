@@ -1,6 +1,6 @@
 {
   "name": "cmip_jld",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Package to process json-ld files in CMIP infrastructure.",
   "main": "./src/index.js",
   "scripts": {
