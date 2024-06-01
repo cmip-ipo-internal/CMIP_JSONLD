@@ -85,7 +85,7 @@ async function readFileFS(filename) {
  */
 function writeFile(content, file) {
     const fs = require('fs').promises;
-    fs.writeFile('file', JSON.stringify(content, null, 4), (err) => {
+    fs.writeFile(file, JSON.stringify(content, null, 4), (err) => {
         if (err) {
             console.error('Error writing to file:', err);
             return;
