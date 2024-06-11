@@ -141,7 +141,7 @@ const removeAtTagsRegex = /("@[^"]*":\s*".*?"(?:,)?\s*)/g;
 const untagRegex = /"(?!cmip:|@)[^@":]*:([^@"]*?)":/g;
 const desingleRegex = /{\s*"([^"]*?)":\s*"(.+)"\s*}/g;
 
-
+const removeNull = /,?\s*"(.*?)":\s*null\s*/g;
 
 /**
  * Removes all JSON-LD prefixes from keys in a JSON object.
@@ -161,6 +161,16 @@ async function untag(jsonString) {
  */
 async function rmld(jsonString) {
     return jsonString.replace(removeAtTagsRegex, '');
+}
+
+/**
+ * Removes all "null" valued entries from a JSON object.
+ *
+ * @param {string} jsonString - The JSON string to be transformed.
+ * @returns {string} The transformed JSON string without "@" entries.
+ */
+async function rmnull(jsonString) {
+    return jsonString.replace(removeNull, '');
 }
 
 /**
@@ -197,6 +207,7 @@ module.exports = {
     graphOnly,
     untag,
     rmld,
+    rmnull,
     flatten,
     printState,
     jsonld,
