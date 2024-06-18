@@ -1,12 +1,15 @@
 {
   "name": "cmip_jld",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Package to process json-ld files in CMIP infrastructure.",
   "main": "./src/index.js",
   "scripts": {
     "docs": "jsdoc -c jsdoc.json -d docs",
     "test": "npm i && node test.js"
   },
+  "bin": {
+    "cmip-filter": "./src/filter-cli.js"
+},
   "keywords": [
     "CMIP",
     "JSON",
@@ -16,6 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",
+    "jmespath": "^0.16.0",
     "jsonld": "^8.3.2"
   },
   "devDependencies": {
