@@ -8,7 +8,7 @@
     "test": "npm i && node test.js"
   },
   "bin": {
-    "cmip-filter": "./src/filter-cli.js"
+    "cmip-filter": "./src/cmipsearch-cli.js"
 },
   "keywords": [
     "CMIP",

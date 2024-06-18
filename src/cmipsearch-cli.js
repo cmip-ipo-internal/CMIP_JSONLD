@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { search } = require('./filter.js');
+const { search } = require('./cmipsearch.js');
 
 // Function to handle command-line arguments and execute logic
 function main() {

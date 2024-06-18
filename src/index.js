@@ -7,8 +7,9 @@ Contact: wcrp-cmip.org < @technical
 
 const axios = require('axios');
 const jsonld = require('jsonld');
+const jmes = require('./cmipsearch.js');
 
-
+const search = jmes.search;
 
 ///////////////////////////////////////////////////////
 // File IO
@@ -211,5 +212,6 @@ module.exports = {
     flatten,
     printState,
     jsonld,
-    axios
+    axios,
+    search
   };
