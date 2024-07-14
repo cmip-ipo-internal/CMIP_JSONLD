@@ -168,7 +168,7 @@ const removeAtTagsRegex = /("@[^"]*":\s*".*?"(?:,)?\s*)/g;
 const untagRegex = /"(?!mip:|@)[^@":]*:([^@"]*?)":/g;
 const desingleRegex = /{\s*"([^"]*?)":\s*"(.+)"\s*}/g;
 
-const removeNull = /\s*"(.*?)":\s*null\s*,(})*/g;
+const removeNull = /[,\s]*"(.*?)":\s*null\s*/g;
 
 /**
  * Removes all JSON-LD prefixes from keys in a JSON object.
@@ -198,7 +198,8 @@ async function rmld(jsonString) {
  */
 async function rmnull(jsonString) {
     // you can set context as "debugid" : "@id" to avoid removing id tags. 
-    return jsonString.replace(removeNull, (match, p1,p2) => p2?p2:'')
+    return jsonString.replace(removeNull,'')
+    //  (match, p1,p2,p3) => p2?'->'+match+'<-':'')
 }
 
 /**
