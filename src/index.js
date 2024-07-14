@@ -78,6 +78,32 @@ async function readFileFS(filename) {
 }
 
 
+async function readFileURL(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        console.error(`Error fetching JSON from ${url}:`, err);
+        return null;
+    }
+}
+
+async function mergeFiles(promises) {
+    try {
+        const results = await Promise.all(promises);
+        // Flatten the arrays into a single merged array
+        return [].concat(...results);
+    } catch (err) {
+        console.error('Error merging files:', err);
+        throw err;
+    }
+}
+
+
 /**
  * Writes the content of a JSON object to a file.
  *
