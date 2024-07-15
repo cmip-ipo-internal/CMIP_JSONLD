@@ -168,7 +168,7 @@ const removeAtTagsRegex = /("@[^"]*":\s*".*?"(?:,)?\s*)/g;
 const untagRegex = /"(?!mip:|@)[^@":]*:([^@"]*?)":/g;
 const desingleRegex = /{\s*"([^"]*?)":\s*"(.+)"\s*}/g;
 
-const removeNull = /[,\s]*"(.*?)":\s*null\s*/g;
+const removeNull = /[,\s]*"(.*?)":\s*null,*\s*/g;
 
 /**
  * Removes all JSON-LD prefixes from keys in a JSON object.
